@@ -134,6 +134,11 @@ body {
   border: none;
   border-radius: 8px;
 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-white);
+
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
