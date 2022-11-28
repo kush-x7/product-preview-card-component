@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
+
+:root {
+  --color-green: hsl(158, 36%, 37%);
+  --color-bg: hsl(30, 38%, 92%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --color-dark-blue: rgb(28, 35, 43);
+  --color-grayish-blue: hsl(228, 12%, 48%);
+
+  --font-paragraph: 14px;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-grayish-blue);
+}
+
+.mobileImage {
+  display: none;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 60rem;
+  border-radius: 1rem;
+  display: flex;
+
+  box-shadow: rgba(28, 35, 43, 0.15) 0px 15px 25px,
+    rgba(28, 35, 43, 0.05) 0px 5px 10px;
+}
+
+.card__image {
+  flex: 1;
+}
+
+.card__image img {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: var(--color-white);
+
+  padding: 3.2rem;
+  flex: 1;
+}
+
+.card__content--sub-title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 5px;
+}
+
+.card__content--title {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+
+  color: var(--color-dark-blue);
+
+  margin: 2rem 0 2.4rem 0;
+}
+
+.card__content--description {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+
+  margin-bottom: 2.9rem;
+}
+
+.card__content--price-box {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 3rem;
+}
+
+.card__content--new-price {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+
+  color: var(--color-green);
+
+  margin-right: 2.4rem;
+}
+.card__content--old-price {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 23px;
+
+  text-decoration-line: line-through;
+}
+
+.card__content--button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.5rem 0;
+
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.card__content--button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.card__content--button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card__content--button::after {
+  content: "";
+  background-color: var(--color-green);
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.card__content--button:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.card__content--button img {
+  margin-right: 1.161rem;
+}
+
+/* - Mobile: 375px */
+@media screen and (max-width: 620px) {
+  .desktopImage {
+    display: none;
+  }
+  .mobileImage {
+    display: block;
+  }
+
+  .card {
+    max-width: 34.3rem;
+    flex-direction: column;
+  }
+
+  .card__image img {
+    border-radius: 1rem 1rem 0 0;
+    background: url("../images/image-product-mobile.jpg");
+  }
+
+  .card__content {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+/* ANimation for card*/
+
+.scale-in-center {
+  animation: scale-in-center 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation for text */
+
+.tracking-in-expand {
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.9s
+    both;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
